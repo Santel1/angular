@@ -1,1 +1,27 @@
-<p>test works!</p>
+<div>
+  <p>Test works!</p>
+  <p>{{ title }}</p>
+
+  <h1>{{ getFullName() }}</h1>
+
+  <!-- ngStyle/Class + Event binding -->
+  <p [ngStyle]="{ color: 'blue' }">Color text</p>
+  <div [ngStyle]="{ display: 'flex', gap: '10px', marginBottom: '10px' }">
+    <p [ngClass]="{ active: isActivated, disabled: isDisabled }">
+      {{ isActivated ? "Active" : "Disabled" }}
+    </p>
+    <button [disabled]="!isEnable" (click)="onClick()">Click</button>
+  </div>
+
+  <!-- Two-way data binding -->
+  <div>
+    <input [(ngModel)]="userName" type="text" placeholder="Type ur name" />
+    <p>Hi,{{ userName }}</p>
+  </div>
+
+  <!-- Message from parent component -->
+  <p>{{ childMessage }}</p>
+
+  <!-- Message to parrent component -->
+  <button (click)="sendMessageToParent()">Send message to parent</button>
+</div>
